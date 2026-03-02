@@ -1,6 +1,6 @@
 //usecase2:HardcodePalindrome
 
-public class HardcodedStringCheck {
+public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
         // Program starts
