@@ -1,41 +1,21 @@
-//usecase1:welcomepage
+import java.util.Scanner;
+
+//usecase3
 public class PalindromeCheckerApp {
-    public static void main(String[] args){
-        String original = "madam";
-        String reversed = "";
-
-        // Reverse the string using for loop
-        for (int i = original.length() - 1; i >= 0; i--) {
-            reversed = reversed + original.charAt(i);
-        }
-
-        // Compare original and reversed string
-        if (original.equals(reversed)) {
-            System.out.println(original + " is a Palindrome.");
-        } else {
-            System.out.println(original + " is NOT a Palindrome.");
-        }
-
-//usecase2:HardcodePalindrome
-
-public class HardcodedStringCheck {
-
     public static void main(String[] args) {
-        // Program starts
-        System.out.println("Program started");
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String original = sc.nextLine();
 
-        // Hardcoded string
-        String input = "HelloWorld";
-        String expected = "HelloWorld";
-
-        // Check the string
-        if (input.equals(expected)) {
-            System.out.println("String matches!");
-        } else {
-            System.out.println("String does not match!");
+        String reversed = "";
+        for (int i = original.length() - 1; i >= 0; i--) {
+            reversed += original.charAt(i);
         }
 
-        // Program exits
-        System.out.println("Program ended");
+        if (original.equals(reversed)) {
+            System.out.println("Palindrome");
+        } else {
+            System.out.println("Not a palindrome");
+        }
     }
 }
