@@ -2,35 +2,40 @@ import java.util.Scanner;
 import java.util.Stack;
 import java.util.*;
 
-//usecase9
+//usecase11
 
-public class RecursivePalindrome {
+class PalindromeChecker {
 
-    // Recursive function
-    static boolean isPalindrome(String str, int start, int end) {
+    // Method to check palindrome
+    public boolean checkPalindrome(String str) {
 
-        // Base condition
-        if (start >= end)
-            return true;
+        str = str.replaceAll("\\s+", "").toLowerCase();
+
+        int start = 0;
+        int end = str.length() - 1;
+
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
         }
+
+        return true;
+    }
+}
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
-
-        // If characters do not match
-        if (str.charAt(start) != str.charAt(end))
-            return false;
 
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
 
-        // Convert string to linked list
-        for (int i = 0; i < input.length(); i++) {
-            insert(input.charAt(i));
-        }
+        PalindromeChecker checker = new PalindromeChecker();
 
-        if (isPalindrome())
+        if (checker.checkPalindrome(input))
             System.out.println("The string is a Palindrome.");
         else
             System.out.println("The string is not a Palindrome.");
@@ -38,25 +43,3 @@ public class PalindromeCheckerApp {
         sc.close();
     }
 }
-
-        void main() {
-        }
-        // Recursive call
-        return isPalindrome(str, start + 1, end - 1);
-    }
-    public class PalindromeCheckerApp {
-        public static void main(String[] args) {
-
-            Scanner sc = new Scanner(System.in);
-
-            System.out.print("Enter a string: ");
-            String input = sc.nextLine();
-
-            if (isPalindrome(input, 0, input.length() - 1))
-                System.out.println("The string is a Palindrome.");
-            else
-                System.out.println("The string is not a Palindrome.");
-
-            sc.close();
-        }
-    }
