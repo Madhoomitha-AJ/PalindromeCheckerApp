@@ -12,11 +12,35 @@ public class RecursivePalindrome {
         // Base condition
         if (start >= end)
             return true;
+        }
+public class PalindromeCheckerApp {
+    public static void main(String[] args) {
 
         // If characters do not match
         if (str.charAt(start) != str.charAt(end))
             return false;
 
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        // Convert string to linked list
+        for (int i = 0; i < input.length(); i++) {
+            insert(input.charAt(i));
+        }
+
+        if (isPalindrome())
+            System.out.println("The string is a Palindrome.");
+        else
+            System.out.println("The string is not a Palindrome.");
+
+        sc.close();
+    }
+}
+
+        void main() {
+        }
         // Recursive call
         return isPalindrome(str, start + 1, end - 1);
     }
