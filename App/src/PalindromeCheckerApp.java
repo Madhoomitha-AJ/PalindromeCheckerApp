@@ -3,32 +3,38 @@ import java.util.Stack;
 import java.util.*;
 
 //usecase11
+//usecase10
+public class PalindromeCheckerApp {
+    public static void main(String[] args) {
 
-// Class responsible only for palindrome checking
-class PalindromeChecker {
+        Scanner sc = new Scanner(System.in);
 
-    // Method to check palindrome
-    public boolean isPalindrome(String input) {
-
-        if (input == null) {
-            return false;
-        }
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
 
         // Normalize string: remove spaces and convert to lowercase
         String processed = input.replaceAll("\\s+", "").toLowerCase();
 
-        int left = 0;
-        int right = processed.length() - 1;
+        boolean isPalindrome = true;
+        int start = 0;
+        int end = processed.length() - 1;
 
-        while (left < right) {
-            if (processed.charAt(left) != processed.charAt(right)) {
-                return false;
+        // Compare characters
+        while (start < end) {
+            if (processed.charAt(start) != processed.charAt(end)) {
+                isPalindrome = false;
+                break;
             }
-            left++;
-            right--;
+            start++;
+            end--;
         }
 
-        return true;
+        if (isPalindrome)
+            System.out.println("The string is a Palindrome.");
+        else
+            System.out.println("The string is not a Palindrome.");
+
+        sc.close();
     }
 }
 
