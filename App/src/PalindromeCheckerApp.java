@@ -4,42 +4,53 @@ import java.util.*;
 
 //usecase11
 
+// Class responsible only for palindrome checking
 class PalindromeChecker {
 
     // Method to check palindrome
-    public boolean checkPalindrome(String str) {
+    public boolean isPalindrome(String input) {
 
-        str = str.replaceAll("\\s+", "").toLowerCase();
+        if (input == null) {
+            return false;
+        }
 
-        int start = 0;
-        int end = str.length() - 1;
+        // Normalize string: remove spaces and convert to lowercase
+        String processed = input.replaceAll("\\s+", "").toLowerCase();
 
-        while (start < end) {
-            if (str.charAt(start) != str.charAt(end)) {
+        int left = 0;
+        int right = processed.length() - 1;
+
+        while (left < right) {
+            if (processed.charAt(left) != processed.charAt(right)) {
                 return false;
             }
-            start++;
-            end--;
+            left++;
+            right--;
         }
 
         return true;
     }
 }
+
 public class PalindromeCheckerApp {
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
+
+        Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter a string: ");
-        String input = sc.nextLine();
+        String input = scanner.nextLine();
 
         PalindromeChecker checker = new PalindromeChecker();
 
-        if (checker.checkPalindrome(input))
-            System.out.println("The string is a Palindrome.");
-        else
-            System.out.println("The string is not a Palindrome.");
+        boolean result = checker.isPalindrome(input);
 
-        sc.close();
+        if (result) {
+            System.out.println("The string is a Palindrome.");
+        } else {
+            System.out.println("The string is not a Palindrome.");
+        }
+
+        scanner.close();
     }
 }
